@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="AppEngine API">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/endpoints/javadoc" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/javadoc" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/remoteapi/javadoc" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/spi/javadoc" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/testing/javadoc" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/docs/tools/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/guestbook/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/helloorm/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/helloorm2/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/helloservers/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/helloxmpp/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/jdoexamples/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/mandelbrot/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/mediastore/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/new_project_template/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/shardedcounter/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/sticky/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/taskengine/src" />
+      <root url="file://$PROJECT_DIR$/../javaSoft/appengine-java-sdk-1.9.21/demos/taskqueueexamples/src" />
+    </SOURCES>
+  </library>
+</component>
