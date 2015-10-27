@@ -6,6 +6,9 @@ import ua.coral.corners.pojo.ChipType;
 import ua.coral.corners.pojo.Coordinates;
 import ua.coral.corners.pojo.Desc;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -20,10 +23,10 @@ public class CornersConfig {
 
     @Bean
     public Desc getDesc() {
-        final Cell[][] cells = new Cell[MAX_LENGTH][MAX_LENGTH];
+        final Map<Coordinates, Cell> cells = new LinkedHashMap<>();
         for (int v = 0; v < MAX_LENGTH; v++) {
             for (int h = 0; h < MAX_LENGTH; h++) {
-                cells[h][v] = getCell(h, v);
+                cells.put(Coordinates.getObject(h, v), getCell(h, v));
             }
         }
         return new Desc(cells);
@@ -46,7 +49,7 @@ public class CornersConfig {
     @Bean
     @Scope("prototype")
     public Coordinates getCoordinates(final int hIndex, final int vIndex) {
-        return new Coordinates(hIndex, vIndex);
+        return Coordinates.getObject(hIndex, vIndex);
     }
 
     private ChipType createChipByIndex(final int hIndex, final int vIndex) {

@@ -2,6 +2,8 @@ package ua.coral.corners.pojo;
 
 import org.springframework.stereotype.Component;
 
+import static ua.coral.corners.pojo.ChipType.EMPTY;
+
 @Component
 public class Cell {
 
@@ -22,5 +24,9 @@ public class Cell {
 
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    public boolean isEmpty() {
+        return chip.getChipType() == EMPTY;
     }
 }

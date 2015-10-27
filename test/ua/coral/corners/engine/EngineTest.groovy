@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 import ua.coral.corners.config.CornersConfig
+import ua.coral.corners.pojo.Coordinates
 import ua.coral.corners.pojo.Desc
 
 @ContextConfiguration(classes = CornersConfig.class)
@@ -18,7 +19,7 @@ class EngineTest extends Specification {
 
         expect:
 
-        engine.canNextStep(hIndex, vIndex) == result
+        engine.canNextStep(Coordinates.getObject(hIndex, vIndex)) == result
 
         where:
 
