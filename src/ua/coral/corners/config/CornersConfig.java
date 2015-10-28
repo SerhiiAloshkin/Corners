@@ -1,6 +1,8 @@
 package ua.coral.corners.config;
 
+import ua.coral.corners.engine.Mover;
 import ua.coral.corners.pojo.Cell;
+import ua.coral.corners.pojo.CellValue;
 import ua.coral.corners.pojo.Chip;
 import ua.coral.corners.pojo.ChipType;
 import ua.coral.corners.pojo.Coordinates;
@@ -14,6 +16,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import static ua.coral.corners.engine.Constants.MAX_LENGTH;
+import static ua.coral.corners.engine.Values.BLACK_VALUES;
+import static ua.coral.corners.engine.Values.WHITE_VALUES;
 import static ua.coral.corners.pojo.ChipType.BLACK;
 import static ua.coral.corners.pojo.ChipType.EMPTY;
 import static ua.coral.corners.pojo.ChipType.WHITE;
@@ -26,7 +30,7 @@ public class CornersConfig {
         final Map<Coordinates, Cell> cells = new LinkedHashMap<>();
         for (int v = 0; v < MAX_LENGTH; v++) {
             for (int h = 0; h < MAX_LENGTH; h++) {
-                cells.put(Coordinates.getObject(h, v), getCell(h, v));
+                cells.put(new Coordinates(h, v), getCell(h, v));
             }
         }
         return new Desc(cells);
@@ -35,7 +39,7 @@ public class CornersConfig {
     @Bean
     @Scope("prototype")
     public Cell getCell(final int hIndex, final int vIndex) {
-        final Cell cell = new Cell(getCoordinates(hIndex, vIndex));
+        final Cell cell = new Cell(getCoordinates(hIndex, vIndex), getCellValue(hIndex, vIndex));
         cell.setChip(getChip(hIndex, vIndex));
         return cell;
     }
@@ -49,7 +53,18 @@ public class CornersConfig {
     @Bean
     @Scope("prototype")
     public Coordinates getCoordinates(final int hIndex, final int vIndex) {
-        return Coordinates.getObject(hIndex, vIndex);
+        return new Coordinates(hIndex, vIndex);
+    }
+
+    @Bean
+    @Scope("prototype")
+    public CellValue getCellValue(final int hIndex, final int vIndex) {
+        return new CellValue(BLACK_VALUES[hIndex][vIndex], WHITE_VALUES[hIndex][vIndex]);
+    }
+
+    @Bean
+    public Mover getMover() {
+        return new Mover();
     }
 
     private ChipType createChipByIndex(final int hIndex, final int vIndex) {

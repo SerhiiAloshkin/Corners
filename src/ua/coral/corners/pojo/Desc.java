@@ -4,8 +4,6 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import static ua.coral.corners.engine.Values.BLACK_VALUES;
-import static ua.coral.corners.engine.Values.WHITE_VALUES;
 import static ua.coral.corners.pojo.ChipType.BLACK;
 import static ua.coral.corners.pojo.ChipType.WHITE;
 
@@ -22,12 +20,16 @@ public class Desc {
         return cellMap.get(coordinates);
     }
 
+    public void setChipToCell(final Coordinates coordinates, final Chip chip) {
+        cellMap.get(coordinates).setChip(chip);
+    }
+
     public int getBlackValue() {
-        return getValue(BLACK, BLACK_VALUES);
+        return getValue(BLACK);
     }
 
     public int getWhiteValue() {
-        return getValue(WHITE, WHITE_VALUES);
+        return getValue(WHITE);
     }
 
     public boolean isEmptyCell(final Coordinates coordinates) {
@@ -37,13 +39,13 @@ public class Desc {
         return false;
     }
 
-    private int getValue(final ChipType chipType, final int[][] values) {
+    private int getValue(final ChipType chipType) {
         int value = 0;
         for (final Map.Entry<Coordinates, Cell> entry : cellMap.entrySet()) {
-            final Coordinates coordinates = entry.getKey();
-            final Chip chip = entry.getValue().getChip();
+            final Cell cell = entry.getValue();
+            final Chip chip = cell.getChip();
             if (chip.getChipType() == chipType) {
-                value += values[coordinates.getHIndex()][coordinates.getVIndex()];
+                value += cell.getCellValue().getValue(chipType);
             }
         }
         return value;

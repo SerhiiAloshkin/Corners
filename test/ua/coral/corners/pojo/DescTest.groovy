@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 import ua.coral.corners.config.CornersConfig
+import ua.coral.corners.engine.Mover
 
 @ContextConfiguration(classes = CornersConfig.class)
 class DescTest extends Specification {
 
     @Autowired
     Desc desc;
+    @Autowired
+    Mover mover;
 
     def 'should return 0 value for default chip'() {
         when:
@@ -26,9 +29,8 @@ class DescTest extends Specification {
     def 'should return value for moved chip'() {
         when:
 
-        Chip chip = desc.getCell(0, 2).chip
-        desc.getCell(0, 2).chip = desc.getCell(0, 3).chip
-        desc.getCell(0, 3).chip = chip
+        mover.move(new Coordinates(0, 2), new Coordinates(0, 3))
+        mover.move(new Coordinates(5, 5), new Coordinates(5, 4))
 
         int blackValue = desc.getBlackValue()
         int whiteValue = desc.getWhiteValue()
@@ -36,6 +38,6 @@ class DescTest extends Specification {
         then:
 
         blackValue == 50
-        whiteValue == 0
+        whiteValue == 70
     }
 }

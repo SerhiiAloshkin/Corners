@@ -9,9 +9,11 @@ public class Cell {
 
     private Chip chip;
     private final Coordinates coordinates;
+    private final CellValue cellValue;
 
-    public Cell(final Coordinates coordinates) {
+    public Cell(final Coordinates coordinates, final CellValue cellValue) {
         this.coordinates = coordinates;
+        this.cellValue = cellValue;
     }
 
     public Chip getChip() {
@@ -24,6 +26,10 @@ public class Cell {
 
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    public CellValue getCellValue() {
+        return cellValue;
     }
 
     public boolean isEmpty() {

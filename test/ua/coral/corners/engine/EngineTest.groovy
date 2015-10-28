@@ -19,7 +19,7 @@ class EngineTest extends Specification {
 
         expect:
 
-        engine.canNextStep(Coordinates.getObject(hIndex, vIndex)) == result
+        engine.canNextStep(new Coordinates(hIndex, vIndex)) == result
 
         where:
 

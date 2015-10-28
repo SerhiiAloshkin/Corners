@@ -53,6 +53,6 @@ public class Engine {
     }
 
     private boolean isNotCellEmpty(final int hIndex, final int vIndex) {
-        return desc.isEmptyCell(Coordinates.getObject(hIndex, vIndex));
+        return desc.isEmptyCell(new Coordinates(hIndex, vIndex));
     }
 }

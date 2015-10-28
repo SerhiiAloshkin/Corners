@@ -36,8 +36,4 @@ public class Coordinates {
     public int hashCode() {
         return Objects.hash(hIndex, vIndex);
     }
-
-    public static Coordinates getObject(final int hIndex, final int vIndex) {
-        return new Coordinates(hIndex, vIndex);
-    }
 }
