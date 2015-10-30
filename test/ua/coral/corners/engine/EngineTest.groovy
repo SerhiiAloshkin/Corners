@@ -4,18 +4,18 @@ import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 import ua.coral.corners.config.CornersConfig
 import ua.coral.corners.pojo.Coordinates
-import ua.coral.corners.pojo.Desc
+import ua.coral.corners.service.DescService
 
 @ContextConfiguration(classes = CornersConfig.class)
 class EngineTest extends Specification {
 
     @Autowired
-    Desc desc;
+    DescService descService;
 
     def 'should allow to do next step'() {
         given:
 
-        Engine engine = new Engine(desc)
+        Engine engine = new Engine(descService)
 
         expect:
 

@@ -1,12 +1,13 @@
 package ua.coral.corners.config;
 
-import ua.coral.corners.engine.Mover;
 import ua.coral.corners.pojo.Cell;
 import ua.coral.corners.pojo.CellValue;
 import ua.coral.corners.pojo.Chip;
 import ua.coral.corners.pojo.ChipType;
 import ua.coral.corners.pojo.Coordinates;
 import ua.coral.corners.pojo.Desc;
+import ua.coral.corners.service.DescService;
+import ua.coral.corners.service.MoveService;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -63,8 +64,13 @@ public class CornersConfig {
     }
 
     @Bean
-    public Mover getMover() {
-        return new Mover();
+    public MoveService getMover() {
+        return new MoveService();
+    }
+
+    @Bean
+    public DescService getDescService() {
+        return new DescService();
     }
 
     private ChipType createChipByIndex(final int hIndex, final int vIndex) {

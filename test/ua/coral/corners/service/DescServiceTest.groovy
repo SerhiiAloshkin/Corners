@@ -1,24 +1,23 @@
-package ua.coral.corners.pojo
-
+package ua.coral.corners.service
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 import ua.coral.corners.config.CornersConfig
-import ua.coral.corners.engine.Mover
+import ua.coral.corners.pojo.Coordinates
 
 @ContextConfiguration(classes = CornersConfig.class)
-class DescTest extends Specification {
+class DescServiceTest extends Specification {
 
     @Autowired
-    Desc desc;
+    DescService descService;
     @Autowired
-    Mover mover;
+    MoveService mover;
 
     def 'should return 0 value for default chip'() {
         when:
 
-        int blackValue = desc.getBlackValue()
-        int whiteValue = desc.getWhiteValue()
+        int blackValue = descService.getBlackValue()
+        int whiteValue = descService.getWhiteValue()
 
         then:
 
@@ -32,8 +31,8 @@ class DescTest extends Specification {
         mover.move(new Coordinates(0, 2), new Coordinates(0, 3))
         mover.move(new Coordinates(5, 5), new Coordinates(5, 4))
 
-        int blackValue = desc.getBlackValue()
-        int whiteValue = desc.getWhiteValue()
+        int blackValue = descService.getBlackValue()
+        int whiteValue = descService.getWhiteValue()
 
         then:
 

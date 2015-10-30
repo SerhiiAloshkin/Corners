@@ -2,18 +2,18 @@ package ua.coral.corners.engine;
 
 import ua.coral.corners.pojo.Cell;
 import ua.coral.corners.pojo.Coordinates;
-import ua.coral.corners.pojo.Desc;
+import ua.coral.corners.service.DescService;
 
 public class Engine {
 
-    private final Desc desc;
+    private final DescService descService;
 
-    public Engine(final Desc desc) {
-        this.desc = desc;
+    public Engine(final DescService descService) {
+        this.descService = descService;
     }
 
     public void step(final Coordinates coordinates) {
-        final Cell cell = desc.getCell(coordinates);
+        final Cell cell = descService.getCell(coordinates);
         switch (cell.getChip().getChipType()) {
             case BLACK:
                 stepForBlack(coordinates);
@@ -53,6 +53,6 @@ public class Engine {
     }
 
     private boolean isNotCellEmpty(final int hIndex, final int vIndex) {
-        return desc.isEmptyCell(new Coordinates(hIndex, vIndex));
+        return descService.isEmptyCell(new Coordinates(hIndex, vIndex));
     }
 }
